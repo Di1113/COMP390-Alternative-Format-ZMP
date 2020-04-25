@@ -1059,7 +1059,7 @@ body .markdown-body
 <p>I like how Thomas described it as &ldquo;dynamic center of mass&rdquo; which puts the concept into a context vividly! But for someone who has little physics background like me, I will provide more basic details about this concept. Most of the following knowledge came from my recently learning when trying to understand ZMP, so if I am wrong somewhere, please let me know! My thanks and apologies in advance. </p>
 <h3 id="in-short">In short:<a class="headerlink" href="#in-short" title="Permanent link"></a></h3>
 <p>Zero Moment Point(ZMP), or more accurately &ldquo;zero tipping moment point&rdquo; as Sardain and Bessonnet point out<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, is a point on robot&rsquo;s foot(sole) where horizontal moment is zero. Another concept often used along with ZMP to measure and estimate a bipedal robot&rsquo;s stability is Center of Pressure(COP), a point where moment exerted by floor&rsquo;s resultant pressure force on the foot equals to zero. When ZMP and COP overlaps, the robot is in a dynamically stable state. In summary, you can calculate ZMP and COP from a robot&rsquo;s sensors, and when you have both, you can use them to tell the robot how to walk steadily(without falling).
-<div align="center"><img alt="ZMP and COP" src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/ZMPwCOP.png" title="Stability control with ZMP and COP" /></div>
+<div align="center"><img alt="ZMP and COP" src="ZMPwCOP.png" title="Stability control with ZMP and COP" /></div>
 <div align="right">[image source<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>]</div></p>
 <h3 id="in-more-detail">In more detail:<a class="headerlink" href="#in-more-detail" title="Permanent link"></a></h3>
 <h4 id="what-is-moment">What is moment?<a class="headerlink" href="#what-is-moment" title="Permanent link"></a></h4>
@@ -1072,20 +1072,20 @@ body .markdown-body
 </div><div align="right">[Video source<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>]</div></p>
 <p>In this simulation video(skip to 27&rdquo;), you can see how ZMP(the green ball on the bottom of the blue line) and the resultant force from the ground on the foot(the blue line) changes dynamically as the robot walks. </p>
 <p>Here is a aerial view of how ZMP changes in a stably walking robot: 
-<div align="center"><img alt="Changing ZMP" src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/ZMP1.png" title="Areial View of Dynamically Changing ZMP" /></div>
+<div align="center"><img alt="Changing ZMP" src="ZMP1.png" title="Areial View of Dynamically Changing ZMP" /></div>
 <div align="right">[image source<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>]</div></p>
 <h4 id="how-to-find-zmp">How to find ZMP?<a class="headerlink" href="#how-to-find-zmp" title="Permanent link"></a></h4>
 <p>Bipedal walking is often simplified to Inverted Pendulum Model(IPM) to calculate ZMP. Contrary to normal pendulum, which has its center of mass below its pivot point and is stable when hanging downwards, an inverted pendulum has its center of mass above its pivot point and is inherently unstable.(Wikipedia<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>) See the cart-pole example below where the center of mass is on the wine glass and the pivot point is on the cart:
- <div align="center"><img src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/390px-Balancer_with_wine_3.jpg" alt="IPM example with cart-pole system" width="150"/></div>
+ <div align="center"><img src="390px-Balancer_with_wine_3.jpg" alt="IPM example with cart-pole system" width="150"/></div>
 <div align="right">[image source<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup>]</div>
 A bipedal robot in walking can also be simplified to an IPM with the center of mass in the robot&rsquo;s hip(or torso) and the pivot point on the ZMP on robot&rsquo;s foot: 
- <div align="center"><img src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/bipedal-IPM.png" alt="IPM example with bipedal robot" width="500"/></div>
+ <div align="center"><img src="bipedal-IPM.png" alt="IPM example with bipedal robot" width="500"/></div>
 <div align="right">[image source<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>]</div>
 Thus, to get ZMP&rsquo;s position in 2D space, we can use the equation in the following figure, where a table-cart system is used to model a 2D IPM(see how the center of mass is on the moving cart and the pivot point(ZMP) is on the table&rsquo;s foot): 
-<div align="center"><img src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/table-cart-IPM.png" alt="calculate 2d ZMP with table-cart system" width="600"/></div>
+<div align="center"><img src="table-cart-IPM.png" alt="calculate 2d ZMP with table-cart system" width="600"/></div>
 <div align="right">[image source<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>]</div>
 ZMP in 3D space can be calculated using the following equations:
-<div align="center"><img src="/C:/Users/di111/iCloudDrive/Documents/Oxy/COMP390/General%20Audience/ZMP_3d_calc.png" alt="calculate 3d ZMP" width="800"/></div>
+<div align="center"><img src="ZMP_3d_calc.png" alt="calculate 3d ZMP" width="800"/></div>
 <div align="right">[image source<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>]</div>
 You can find the equation derivation process and their notations in the paper I linked to the image source above(it&rsquo;s also linked in the first recommended readings). 
 These two sets of equations are equivalent in essence; they are just describing the same things in different spaces. To understand them, you need to know how force can be calculated from mass and acceleration, and how moment can be calculated from force and distance(lever/moment arm). To not deviate too much in this answer, I will not explain them one by one here. Google these concepts if you are confused but interested, then come back to see if these equations make more sense to you. If not, let me know, I will be happy to explain them to you!</p>
